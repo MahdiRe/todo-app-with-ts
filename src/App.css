@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  width: 100%;
+  border: 1px black solid;
+  text-align: center;
+}
+
+.container{
+  display: flex;
+  border: solid 1px black;
+  padding: 15px;
+}
+
+.addTodo {
+  width: 30%;
+  border: solid 1px black;
+  padding: 15px;
+  margin-left: 25px;
+}
+
+.todoList {
+  width: 100%; 
+  border: solid 1px black;
+  padding: 15px;
+  margin-left: 25px;
+  overflow: auto;
+}
