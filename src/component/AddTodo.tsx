@@ -45,14 +45,15 @@ const AddTodo: React.FC<IProps> = ({ todos, setTodo, postTodo }) => {
 
         setInput({
             title: "",
-            activeState: "",
+            activeState: "New",
             endDate: "2021-07-10"
         })
     }
 
     return (
         <div className="addTodo">
-            <h2>Add a new Todo</h2>
+            <div style={{marginTop: "60px"}}></div>
+            <h2 >Add a new Todo</h2>
             <TextField
                 id="title"
                 label="Title"

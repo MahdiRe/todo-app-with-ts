@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, makeStyles, Button } from '@material-ui/core';
 import { IState as Props } from '../App';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 interface IProps {
     todos: Props["todos"]
@@ -8,7 +9,7 @@ interface IProps {
     updateTodo: (id: string) => void
 }
 
-// const useStyles = makeStyles({
+// const useStyles = makeStyles({}
 //     table: {
 //         minWidth: 650,
 //     },
@@ -20,7 +21,7 @@ const TodoList: React.FC<IProps> = ({ todos, deleteTodo, updateTodo }) => {
 
     const deleteItem = (id: string | undefined) => {
         console.log(id)
-        if (id === undefined){
+        if (id === undefined) {
             return
         }
         deleteTodo(id);
@@ -28,7 +29,7 @@ const TodoList: React.FC<IProps> = ({ todos, deleteTodo, updateTodo }) => {
 
     const updateItem = (id: string | undefined) => {
         console.log(id)
-        if (id === undefined){
+        if (id === undefined) {
             return
         }
         updateTodo(id);
@@ -45,9 +46,18 @@ const TodoList: React.FC<IProps> = ({ todos, deleteTodo, updateTodo }) => {
                         <TableCell align="right">{todo.activeState}</TableCell>
                         <TableCell align="right">{todo.endDate}</TableCell>
                         <TableCell align="right">
-                            <Button variant="contained" color="secondary" onClick={() => updateItem(todo._id)}>
-                                Mark Done
-                            </Button>
+                            {
+                                todo.activeState === "Done"
+                                    ?
+                                    <Button variant="contained" disabled>
+                                        <b>Marked</b>&nbsp; <CheckCircleIcon style={{ color: "green"}} />
+                                    </Button>
+                                    
+                                    :
+                                    <Button variant="contained" color="secondary" onClick={() => updateItem(todo._id)}>
+                                        Mark Done
+                                    </Button>
+                            }
                         </TableCell>
                         <TableCell align="right">
                             <Button variant="contained" color="secondary" onClick={() => deleteItem(todo._id)}>
