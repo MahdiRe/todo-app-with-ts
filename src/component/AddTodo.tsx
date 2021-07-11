@@ -5,16 +5,17 @@ import { IState as Props } from '../App'
 interface IProps {
     todos: Props["todos"]
     setTodo: React.Dispatch<React.SetStateAction<IProps["todos"]>>
+    postTodo: (newTodo: Props["todos"]) => void
 }
 
-const AddTodo: React.FC<IProps> = ({ todos, setTodo }) => {
+const AddTodo: React.FC<IProps> = ({ todos, setTodo, postTodo }) => {
 
     const [input, setInput] = useState({
         title: "",
         activeState: "New",
         endDate: "2021-07-10",
     })
-        
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         setInput({
             ...input,
@@ -27,14 +28,20 @@ const AddTodo: React.FC<IProps> = ({ todos, setTodo }) => {
             return
         }
 
-        setTodo([
-            ...todos,
-            {
-                title: input.title,
-                activeState: input.activeState,
-                endDate: input.endDate
-            }
-        ])
+        // setTodo([
+        //     ...todos,
+        //     {
+        //         title: input.title,
+        //         activeState: input.activeState,
+        //         endDate: input.endDate
+        //     }
+        // ])
+
+        postTodo([{
+            title: input.title,
+            activeState: input.activeState,
+            endDate: input.endDate
+        }])
 
         setInput({
             title: "",
