@@ -17,12 +17,12 @@ export interface IState {
 function App() {
 
   const [todos, setTodo] = useState<IState["todos"]>([
-    {
-      _id: "1",
-      title: "Wake up ",
-      activeState: "New",
-      endDate: "07/07/2017"
-    }
+    // {
+    //   _id: "1",
+    //   title: "Wake up ",
+    //   activeState: "New",
+    //   endDate: "07/07/2017"
+    // }
   ])
 
   const getTodo = () => {

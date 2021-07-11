@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button } from '@material-ui/core';
-import { IState as Props } from '../App'
+import { IState as Props } from '../App';
 
 interface IProps {
     todos: Props["todos"]
